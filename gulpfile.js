@@ -27,6 +27,7 @@ var path = {
     dist: {
         html:  'dist/',
         js:    'dist/js',
+        modules: 'dist/js/modules',
         css:   'dist/css',
         img:   'dist/img',
 		imgwork: 'dist/images',
@@ -138,6 +139,11 @@ gulp.task('script', (cb) => {  //сжатие скриптов с поддерж
 		cb();
 });
 
+gulp.task('modules', () => {
+    return gulp.src('app/js/modules/*.js')
+        .pipe(gulp.dest(path.dist.modules))
+});
+
 gulp.task('images', function (cb) {
     gulp.src(path.src.img) // путь с исходниками картинок
         .pipe(cache(imagemin([ // сжатие изображений
@@ -176,6 +182,6 @@ gulp.task('clean', function (cb) {
 //gulp.task('default', gulp.series('sass','watch'));
 gulp.task('dev', gulp.series('watch'));
 
-gulp.task('build', gulp.series('clean', 'sass:build', 'useref', 'images', 'fonts', 'svg', 'script', 'build:delhtmlcomm', function (done) {
+gulp.task('build', gulp.series('clean', 'sass:build', 'useref', 'images', 'fonts', 'svg', 'modules', 'script', 'build:delhtmlcomm', function (done) {
     done();
 }));
