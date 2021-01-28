@@ -1,0 +1,29 @@
+// style for "insert your picture here"
+
+.file-upload{
+  padding: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+  span{
+    font-size: 33px;
+    font-weight: lighter;
+    color: $color-softgrey;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .file-input{
+    // position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -36,7 +36,7 @@ var path = {
     src: {
 		html:  'app/*.html',
         js:    'app/js/*.js',
-        scss: 'app/sass/**/*.scss',
+        scss: 'app/sass/*.scss',
 		css:   'app/css/',
         img:   'app/img/**/*.*',
         imgwork:   'app/images/**/*.*',
@@ -79,21 +79,21 @@ var gulp = require('gulp'), // подключаем Gulp
 
 
 gulp.task('sass', function (cb) {
-  return gulp.src(path.src.scss)
-  .pipe(plumber()) // для отслеживания ошибок
-   .pipe(sourcemaps.init()) // инициализируем sourcemap
-   .pipe(sass()) // scss -> css
-	.pipe(sourcemaps.write('./')) // записываем sourcemap
-    .pipe(gulp.dest(path.src.css))  // выкладывание готовых файлов
-	.pipe(browserSync.stream());
-	cb();
+    return gulp.src(path.src.scss)
+        .pipe(plumber()) // для отслеживания ошибок
+        .pipe(sourcemaps.init()) // инициализируем sourcemap
+        .pipe(sass()) // scss -> css
+        .pipe(sourcemaps.write('./')) // записываем sourcemap
+        .pipe(gulp.dest(path.src.css))  // выкладывание готовых файлов
+        .pipe(browserSync.stream());
+    cb();
 });
 
 gulp.task('sass:build', function (cb) {  
-  return gulp.src(path.src.scss)
-  .pipe(plumber()) // для отслеживания ошибок
-   .pipe(sass()) // scss -> css
-   .pipe(postcss([ autoprefixer() ]))
+    return gulp.src(path.src.scss)
+    .pipe(plumber()) // для отслеживания ошибок
+    .pipe(sass()) // scss -> css
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(cleanCSS()) // минимизируем CSS
     .pipe(gulp.dest(path.src.css))  // выкладывание готовых файлов
 	.pipe(browserSync.stream());
@@ -114,12 +114,12 @@ gulp.task('watch', function(cb) {
     gulp.watch('app/*.html').on('change',browserSync.reload);
     gulp.watch('app/sass/*.scss', gulp.series('sass')); //.on('change',browserSync.reload);
 	gulp.watch('app/css/*.css', browserSync.reload);
-    gulp.watch('app/js/**/*.js').on('change', browserSync.reload);
+    gulp.watch('app/js/*.js').on('change', browserSync.reload);
 	cb();
 });
 
 gulp.task('useref', function (cb) { //сжатие всего остального
-     gulp.src(path.src.html)
+    gulp.src(path.src.html)
         .pipe(useref())  //парсит специфичные блоки и конкатенирует описанные в них стили и скрипты.
         .pipe(gulpif('*.css', minifyCss({processImport: false})))
         .pipe(gulp.dest('dist'));

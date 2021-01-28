@@ -1,0 +1,94 @@
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .contact-form{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 42px;
+    @include tablets{
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 35px;
+    }
+  
+    &__block-left{
+      display: flex;
+      flex-direction: column;
+      width: 46%;
+      @include tablets{
+        margin-bottom: 35px;
+      }
+      .input{
+        &__name{
+          width: 100%;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid $color-softgrey;
+          
+          font-size: 14px;
+          color: $color-softgrey;
+          line-height: 1.2;
+          padding-left: 10px;
+  
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+  
+    }
+    &__block-right{
+      width: 46%;
+      @include tablets{
+        height: 120px;
+      }
+      .input{
+        &__message{ 
+          height: 100%;
+          width: 100%;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid $color-softgrey;
+          font-size: 14px;
+          color: $color-softgrey;
+          line-height: 1.2;
+          padding-left: 10px;
+          resize: none;
+        }
+      }
+    }
+  
+    label{
+      position: relative;
+      margin-bottom: 35px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  
+    .input-error-message{
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      font-size: 10px;
+      color: firebrick;
+    }
+    
+    .status{
+      display: none;
+      position: absolute;
+      left: 0;top: 0;right: 0;bottom: 0;
+      background-color:rgba(255,0,0,0.43);
+      // display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+

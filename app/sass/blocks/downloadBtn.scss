@@ -1,0 +1,25 @@
+.download-btn {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: lighter;
+  padding: 10px 25px;
+  &--orange{
+    background-color: $color-orange;
+    border-radius: 4px;
+    font-weight: bold;
+    border: none;
+    &:hover{
+      background-color: #f78f43;
+    }
+  }
+  &--white{
+    &:hover{
+      color: $color-black;
+      border: 2px solid $color-black;
+    }
+  }  
+}

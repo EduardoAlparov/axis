@@ -1,0 +1,10 @@
+.divider{
+  width: 63px;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 40px;
+
+  &--orange{
+    background-color: $color-orange;
+  }
+}

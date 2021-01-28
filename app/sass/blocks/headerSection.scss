@@ -1,0 +1,330 @@
+
+.section-header{
+  height: 100vh;
+  background-color: $color-grey;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  // background-size: cover;
+  background-size: auto 100%;
+
+  @include  desktop{
+    height: 100%;
+    padding-bottom: 50px;
+    background-size: cover;
+  }
+
+  .section-inner{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .file-upload {
+      box-sizing: content-box;
+      display: block;
+      height: auto;
+      width: auto;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      @include  desktop{
+        top: 85px;
+        z-index: 5;
+      }
+
+
+      p{
+        margin: 0;
+        color: $color-softgrey;
+        white-space: nowrap;
+        font-size: 33px;
+        font-weight: lighter;
+        line-height: 1.2;
+        text-align: center;
+        cursor: pointer;
+        @include  desktop{
+          font-size: 24px;
+        }
+        @include tablets{
+          font-size: 20px;
+        }
+      }
+
+      .file-input{
+        top: 0;
+        left: 0;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.section-header-header{
+  background-color: $color-black;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    background-color: $color-black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .hamburger-menu-container{
+    display: none;
+    width: 44px;
+    height: 44px;
+    @include desktop{
+      display: block;
+    }
+  }
+    
+  .hamburger-menu{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s ease;
+    min-height: 44px;
+  }
+  
+  .hamburger-menu__button{
+    display: block;
+    margin: 0 auto;
+    --gapBefore: -12px;
+    --gapAfter: 12px;
+    background-color: #eee;
+    width: 44px;
+    height: 6px;
+    position: relative;
+    transition: .3s;
+  }
+  
+  .hamburger-menu__button::before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    position: absolute;
+    left: 0px;
+    transform: translateY(var(--gapBefore,-8px));
+    transition: .3s;
+  }
+  
+  .hamburger-menu__button::after{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    position: absolute;
+    left: 0px;
+    transform: translateY(var(--gapAfter,8px));
+    transition: .3s;
+  }
+  
+  .hamburger-menu--active >.hamburger-menu__button::before{
+    transform: rotate(45deg);
+  }
+  
+  .hamburger-menu--active >.hamburger-menu__button::after{
+    transform: rotate(-45deg);
+  }
+  
+  .hamburger-menu--active >.hamburger-menu__button{
+    background-color: transparent; 
+  }
+  
+  .hamburger-menu__button--active >.hamburger-menu__button{
+    background-color: transparent;
+  }
+
+  .hamburger-menu__button--active,.fixed-menu {
+    right: 0;
+  } 
+}
+
+.section-header-wrapper__left{
+  flex-basis: 50%;
+  @include  desktop{
+    width: 50%;
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  &-content{
+    @include  desktop{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+  }
+}
+.section-header-wrapper__rigth{
+  flex-basis: 50%;
+  text-align: center;
+}
+
+
+.section-header-header__menu{
+  @include  desktop{
+    display: none;
+  }
+  .menu {
+    &__list{
+      display: flex;
+    }
+    &__item{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin-right: 40px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    &__link{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+
+
+.section-header-content{
+  margin: auto;
+  position: relative;
+  @include  desktop{
+    padding-top: 50px;
+  }
+} 
+
+
+
+.section-header-wrapper{
+  display: flex;
+  align-items: center;
+  @include  desktop{
+    flex-direction: column;
+  }
+
+  &__left-content{
+    .logo{
+      width: 180px;
+      height: 60px;
+      margin-bottom: 30px;
+    }
+    .title{
+      @include font-raleway;
+      font-size: 36px;
+      color: white;
+      margin-bottom: 40px;
+      @include desktop{
+        font-size: 28px;
+      }
+    }
+    .text{
+      @include font-raleway;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 23px;
+      color: $color-softgrey;
+      margin-bottom: 44px;
+    }
+  }
+
+  &__rigth-form {
+    width: 363px;
+    height: 363px;
+    margin-left: auto;
+    display: flex;
+
+    @include  desktop{
+      width: 280px;
+    }
+  }
+}
+
+.form-block{
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  .title{
+    line-height: 2.3;
+    width: 100%;
+    font-size: 20px;
+    background-color: $color-softgrey;
+    height: 55px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    @include  desktop{
+      font-size: 18px;
+    }
+  }
+  input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color-softgrey;
+    width: 80%;
+    padding-bottom: 0;
+    padding-right: 40px;
+    color: $color-softgrey;
+  }
+  .input-name{
+    height: 60px;
+  }
+  .input-mail{
+    height: 67px;
+  }
+  .input-pass{
+    height: 77px;
+    margin-bottom: 48px;
+  }
+  .started-btn{
+    width: 100%;
+    height: 60px;
+    background-color: $color-orange;
+    display: block;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    &:hover{
+      background-color:  #f78f43;
+    }
+  }
+}

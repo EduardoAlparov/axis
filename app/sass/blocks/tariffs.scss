@@ -1,0 +1,97 @@
+
+.tariffs{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  @include tablets{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item{
+    min-width: 344px;
+    min-height: 100%;
+    @include desktop{
+      min-width: 212px;
+    }
+    @include tablets{
+      min-width: 344px;
+      margin-bottom: 35px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__name{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    background-color: $color-softblack;
+    padding: 12px 0;
+    margin-bottom: 1px;
+  }
+
+  &__price{
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: $color-softblack;
+
+    &-value{
+      font-size: 35px;
+      @include font-raleway;
+      color: white;
+      font-weight: bold;
+      line-height: 0.686;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    &-rate{
+      white-space: pre;
+      font-size: 14px;
+      color: $color-grey;
+      line-height: 1.714;
+      text-align: center;
+    }
+
+  }
+  &__orange-div{
+    min-height: 5px;
+    background-color: $color-orange;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 12px 0;
+    &.empty{
+      padding: 0;
+    }
+  }
+
+  &__text{
+    font-size: 14px;
+    color: $color-softgrey;
+    text-transform: uppercase;
+    line-height: 1.714;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid $color-softgrey;
+    padding: 12px 0;
+    &:last-child{
+      border: none;
+    }
+    @include tablets{
+      &:last-child{
+        border-bottom: 1px solid $color-orange;
+      }
+    }
+  }
+}

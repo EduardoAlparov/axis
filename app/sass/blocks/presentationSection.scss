@@ -1,0 +1,251 @@
+
+.section-presentation{
+  .section-inner {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.section-sublist{
+  display: flex;
+  align-items: center;
+  padding-top: 105px;
+  padding-bottom: 132px;
+  @include  desktop{
+    flex-direction: column;
+    align-items: center;
+    padding-top: 52px;
+    padding-bottom: 66px;
+  }
+}
+
+.section-sublist-slide{
+  flex: 1;
+  margin-right: 110px;
+  @include  desktop{
+    margin-right: 0;
+    margin-bottom: 72px;
+  }
+  &__container{
+    position: relative;
+    width: 453px;
+    height: 304px;
+    box-shadow: 1px 7px 29px 0px rgba(0,0,0,0.75);
+
+    &-pic{
+      background-color: $color-grey;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+    }
+  }
+}
+
+
+.section-sublist-description{
+  flex: 1;
+  @include  desktop{
+    width: 80%;
+  }
+  .heading-title{
+    margin-bottom: 30px;
+    @include  desktop{
+      text-align: center;
+    }
+  }
+
+  .divider{
+    text-align: left;
+    margin-left: 0;
+    @include desktop{
+      margin-left: auto;
+    }
+  }
+  .heading-desc{
+    margin-bottom: 30px;
+  }
+
+  .controls-btns{
+    &___block{
+      display: flex;
+
+      &-title{
+        font-size: 14px;
+        color: $color-black;
+        line-height: 1.214;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+
+    &__button{
+      display: block;
+      width: 100px;
+      height: 46px;
+      border: 2px solid $color-orange;
+      border-radius: 50%;
+      margin-right: 35px;
+      @include  desktop{
+        max-width: 46px;
+        min-width: 46px;
+      }
+
+      &-icon{
+        fill: $color-orange;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.section-standart-pictures{
+  position: relative;
+  display: flex;
+  background-color: $backcolor-grey;
+  padding-top: 100px;
+  padding-bottom: 132px;
+  @include  desktop{
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 66px;
+  }
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    background-color: $backcolor-grey;
+    right: 100%;
+    top: 0;
+  }
+
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    background-color: $backcolor-grey;
+    left: 100%;
+    top: 0;
+  }
+}
+
+.section-standart-pictures__description{
+  flex: 1;
+  margin-right: 120px;
+  @include  desktop{
+    margin-right: 0;
+    text-align: center;
+    width: 60%;
+    margin-bottom: 50px;
+  }
+
+  .heading-title{
+    color: $color-softblack;
+    margin-bottom: 30px;
+  }
+
+  .divider{
+    margin-bottom: 30px;
+  }
+
+  .heading-desc{
+    color: $color-softblack;
+    margin-bottom: 30px;
+  }
+}
+
+.section-awesome{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 105px;
+  padding-bottom: 105px;
+  @include desktop{
+    padding-top: 52px;
+    padding-bottom: 52px;  
+  }
+
+  &-head{
+    text-align: center;
+    .title{
+      text-transform: uppercase;
+      @include font-raleway;
+      font-size: 36px;
+      color: $color-black;
+      margin-bottom: 30px;
+      @include desktop{
+        font-size: 28px;
+      }
+    }
+
+    .divider{
+      margin: 0 auto;
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .heading-desc{
+      margin-bottom: 50px;
+    }
+  }
+
+  &-list{
+    .awesome{
+      &__list{
+        display: flex;
+        @include desktop{
+          width: 60%;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: center;
+          margin: 0 auto;
+        }
+      }
+      &__item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 28px;
+        @include desktop{
+          margin-right: 0;
+          margin-bottom: 35px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+      &__pic{
+        width: 46px;
+        height: 46px;
+        border: 2px solid $color-orange;
+        border-radius: 50%;
+        margin-bottom: 32px;
+
+        &-icon{
+          fill: $color-orange;
+          padding: 10px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &__title{
+        margin-bottom: 32px;
+      }
+      &__desc{
+        text-align: center;
+      }
+    }
+  }
+}
+

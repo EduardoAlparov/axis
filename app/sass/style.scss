@@ -1,6 +1,39 @@
 // Here we write your SCSS style
+@import './vars.scss';
+@import './mixins.scss';
 
-h1 {
-	font-size: 1rem;
-	color: red; 
-}   
+@import './blocks/base.scss';
+@import './blocks/sectionsOuterInner.scss';
+
+// common styles
+@import './blocks/divider.scss';
+@import './blocks/downloadBtn.scss';
+@import './blocks/headingTitleAndDesc.scss';
+
+// sections
+
+@import './blocks/headerSection.scss';
+
+@import './blocks/heroSection.scss';
+
+// presentation section
+@import './blocks/presentationSection.scss';
+  @import './blocks/bgImageUpload.scss';
+
+// pricing section
+@import './blocks/pricingSection.scss';
+  @import './blocks/tariffs.scss';
+
+// reviews section
+@import './blocks/reviewsSection.scss';
+  @import './blocks/stylishSection.scss';
+
+// footer section 
+@import './blocks/footerSection.scss';
+  @import './blocks/formBlock.scss';
+
+// fixed menu
+@import './blocks/fixedMenu.scss';  
+
+// animated arrow
+@import './blocks/arrowBlock.scss';
