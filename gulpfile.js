@@ -75,7 +75,8 @@ var gulp = require('gulp'), // подключаем Gulp
 	rigger = require('gulp-rigger'), // модуль для импорта содержимого одного файла в другой
 	runSequence = require('run-sequence'),
 	babel = require('gulp-babel'), //преобразование скриптов с поддержкой ES6
-	removeHtmlComments = require('gulp-remove-html-comments'); //удаление комментариев в html-файлах
+    removeHtmlComments = require('gulp-remove-html-comments'), //удаление комментариев в html-файлах
+    svgSprite = require('gulp-svg-sprite');
 
 
 gulp.task('sass', function (cb) {
@@ -164,9 +165,22 @@ gulp.task('clean', function (cb) {
 	cb();
 });
 
+gulp.task('svgSprite', function () {
+    return gulp.src('app/img/*.svg') // svg files for sprite
+        .pipe(svgSprite({
+                mode: {
+                    stack: {
+                        sprite: "../sprite.svg"  //sprite file name
+                    }
+                },
+            }
+        ))
+        .pipe(gulp.dest(path.dist.img));
+});
+
 //gulp.task('default', gulp.series('sass','watch'));
 gulp.task('dev', gulp.series('watch'));
 
-gulp.task('build', gulp.series('clean', 'sass:build', 'useref', 'images', 'fonts', 'script', 'build:delhtmlcomm', function (done) {
+gulp.task('build', gulp.series('clean', 'sass:build', 'useref', 'images', 'fonts', 'script', 'build:delhtmlcomm', 'svgSprite', function (done) {
     done();
 }));
