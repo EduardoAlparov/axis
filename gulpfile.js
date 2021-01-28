@@ -130,7 +130,7 @@ gulp.task('useref', function (cb) { //сжатие всего остальног
 
 
 gulp.task('script', (cb) => {  //сжатие скриптов с поддержкой ES6
-    return gulp.src('app/js/**/*')
+    return gulp.src('app/js/*.js')
         .pipe(babel({
             presets: ['@babel/env']
         }))

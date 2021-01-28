@@ -1,1 +1,32 @@
-"use strict";!function(){var e=document.querySelectorAll(".menu__link"),t=document.querySelectorAll(".section-outer"),o=document.querySelector(".arrow-link"),i=document.querySelector(".arrow-fixed-block");e.forEach(function(e){e.addEventListener("click",function(e){e.preventDefault();e=e.target.getAttribute("href").replace("#","");document.getElementById(e).scrollIntoView({block:"start",behavior:"smooth"})})}),window.addEventListener("scroll",function(e){pageYOffset>t[0].offsetHeight/2&&768<document.body.clientWidth?(i.style.visibility="visible",o.addEventListener("click",function(e){e.preventDefault(),document.body.scrollIntoView({block:"start",behavior:"smooth"})})):i.style.visibility="hidden"})}();
+(function menuNavigation() {
+  const menuLinks = document.querySelectorAll('.menu__link');
+  const sections = document.querySelectorAll('.section-outer');
+  const arrowUp = document.querySelector('.arrow-link');
+  const arrowBlock = document.querySelector('.arrow-fixed-block');
+
+  // навигация по меню
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener('click', (e) => {
+      e.preventDefault();
+  
+      const idByhref = e.target.getAttribute('href').replace('#', '');
+      const sectionById = document.getElementById(idByhref);
+
+      sectionById.scrollIntoView({block: 'start', behavior: 'smooth'});
+    })
+  })
+
+  // стролочка вверх с анимацией, невидима на первой странице
+  window.addEventListener('scroll', (e) => {
+    if (pageYOffset > (sections[0].offsetHeight / 2) && document.body.clientWidth > 768) {
+      arrowBlock.style.visibility = 'visible';
+
+      arrowUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.scrollIntoView({block: 'start', behavior: 'smooth'});
+      })
+    } else {
+      arrowBlock.style.visibility = 'hidden';
+    }
+  })
+})()

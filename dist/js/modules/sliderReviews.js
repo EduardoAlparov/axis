@@ -1,1 +1,98 @@
-"use strict";var slidesToShow,slidesToScroll,itemWidth,movePosition,setPosition,_slidesToShow,_slidesToScroll,_itemWidth,_movePosition,_setPosition,_slidesToShow2,_slidesToScroll2,_itemWidth2,_movePosition2,_setPosition2,position=0,container=document.querySelector(".section-reviews-content__reviews-container"),track=document.querySelector(".review__list"),items=document.querySelectorAll(".review__item"),itemCount=items.length;992<window.innerWidth?(slidesToScroll=slidesToShow=3,itemWidth=container.clientWidth/slidesToShow,movePosition=slidesToScroll*itemWidth,items.forEach(function(i){i.style.minWidth="".concat(itemWidth,"px")}),setInterval(function(){var i=itemCount-(Math.abs(position)+slidesToShow*itemWidth)/itemWidth;(position-=slidesToScroll<=i?movePosition:i*itemWidth)<=-(itemCount-slidesToShow)*itemWidth&&setTimeout(function(){position=0},2e3),setPosition()},4e3),setPosition=function(){track.style.transform="translateX(".concat(position,"px)")}):window.innerWidth<992&&600<window.innerWidth?(_slidesToScroll=_slidesToShow=2,_itemWidth=container.clientWidth/_slidesToShow,_movePosition=_slidesToScroll*_itemWidth,items.forEach(function(i){i.style.minWidth="".concat(_itemWidth,"px")}),setInterval(function(){var i=itemCount-(Math.abs(position)+_slidesToShow*_itemWidth)/_itemWidth;(position-=_slidesToScroll<=i?_movePosition:i*_itemWidth)<=-(itemCount-_slidesToShow)*_itemWidth&&setTimeout(function(){position=0},2e3),_setPosition()},4e3),_setPosition=function(){track.style.transform="translateX(".concat(position,"px)")}):window.innerWidth<600&&(_slidesToScroll2=_slidesToShow2=1,_itemWidth2=container.clientWidth/_slidesToShow2,_movePosition2=_slidesToScroll2*_itemWidth2,items.forEach(function(i){i.style.minWidth="".concat(_itemWidth2,"px")}),setInterval(function(){var i=itemCount-(Math.abs(position)+_slidesToShow2*_itemWidth2)/_itemWidth2;(position-=_slidesToScroll2<=i?_movePosition2:i*_itemWidth2)<=-(itemCount-_slidesToShow2)*_itemWidth2&&setTimeout(function(){position=0},2e3),_setPosition2()},4e3),_setPosition2=function(){track.style.transform="translateX(".concat(position,"px)")});
+let position = 0;
+const container = document.querySelector('.section-reviews-content__reviews-container');
+const track = document.querySelector('.review__list');
+const items = document.querySelectorAll('.review__item');
+const itemCount = items.length;
+
+if (window.innerWidth > 992) {
+  const slidesToShow = 3;
+  const slidesToScroll = 3;
+
+  const itemWidth = container.clientWidth / slidesToShow;
+  const movePosition = slidesToScroll * itemWidth;
+
+  items.forEach((item) => {
+    item.style.minWidth = `${itemWidth}px`
+  })
+
+  setInterval(() => {
+    const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+  
+    position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+  
+  
+    if(position <= -(itemCount - slidesToShow) * itemWidth) {
+      setTimeout(() => {
+        position = 0;
+      }, 2000)
+    }
+  
+    setPosition();
+  }, 4000);
+
+  const setPosition = () => {
+    track.style.transform = `translateX(${position}px)`;
+  };
+  
+} else if (window.innerWidth < 992 && window.innerWidth > 600) {
+  const slidesToShow = 2;
+  const slidesToScroll = 2;
+
+  const itemWidth = container.clientWidth / slidesToShow;
+  const movePosition = slidesToScroll * itemWidth;
+
+  items.forEach((item) => {
+    item.style.minWidth = `${itemWidth}px`
+  })
+
+  setInterval(() => {
+    const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+  
+    position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+  
+  
+    if(position <= -(itemCount - slidesToShow) * itemWidth) {
+      setTimeout(() => {
+        position = 0;
+      }, 2000)
+    }
+  
+    setPosition();
+  }, 4000);
+
+  const setPosition = () => {
+    track.style.transform = `translateX(${position}px)`;
+  };
+  
+} else if (window.innerWidth < 600) {
+  const slidesToShow = 1;
+  const slidesToScroll = 1;
+
+  const itemWidth = container.clientWidth / slidesToShow;
+  const movePosition = slidesToScroll * itemWidth;
+
+  items.forEach((item) => {
+    item.style.minWidth = `${itemWidth}px`
+  })
+
+  setInterval(() => {
+    const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+  
+    position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+  
+  
+    if(position <= -(itemCount - slidesToShow) * itemWidth) {
+      setTimeout(() => {
+        position = 0;
+      }, 2000)
+    }
+  
+    setPosition();
+  }, 4000);
+
+  const setPosition = () => {
+    track.style.transform = `translateX(${position}px)`;
+  };
+  
+}
+

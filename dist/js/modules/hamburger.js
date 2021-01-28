@@ -1,1 +1,10 @@
-"use strict";function hamburger(){var e=document.querySelector(".hamburger-menu"),t=document.querySelector(".fixed-menu"),r=document.querySelector("body");e.addEventListener("click",function(){e.classList.toggle("hamburger-menu--active"),t.classList.toggle("fixed-menu--active"),r.classList.toggle("fixed-menu-open")})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.hamburger=hamburger;
+export function hamburger() { const btnMenu = document.querySelector('.hamburger-menu');
+    const fixedMenu = document.querySelector('.fixed-menu');
+    const bodyOverflow = document.querySelector('body');
+
+    btnMenu.addEventListener('click', () => {
+        btnMenu.classList.toggle('hamburger-menu--active');
+        fixedMenu.classList.toggle('fixed-menu--active');
+        bodyOverflow.classList.toggle('fixed-menu-open');
+    })
+}

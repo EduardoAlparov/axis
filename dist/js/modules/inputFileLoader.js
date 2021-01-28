@@ -1,1 +1,36 @@
-"use strict";var backgroundContainer=document.querySelector("#first-inner"),downloadInput=document.querySelector(".file-input"),standartPicBlock=document.querySelector("#file-input3"),standartPicContainer=document.querySelector("#standart-pic-container"),sublistPicBlock=document.querySelector("#file-input2"),sublistPicContainer=document.querySelector("#sublist-pic-container");function setBackgroundImage(e,n){var t=document.getElementById(e);t.files&&t.files[0]&&((e=new FileReader).onload=function(e){n.style.backgroundImage="url("+e.target.result+")"},e.readAsDataURL(t.files[0]))}downloadInput.addEventListener("change",function(){setBackgroundImage("input-file",backgroundContainer)}),standartPicBlock.addEventListener("change",function(){setBackgroundImage("file-input3",standartPicContainer)}),sublistPicBlock.addEventListener("change",function(){setBackgroundImage("file-input2",sublistPicContainer)});
+const backgroundContainer = document.querySelector('#first-inner');
+const downloadInput = document.querySelector('.file-input');
+const standartPicBlock = document.querySelector('#file-input3');
+const standartPicContainer = document.querySelector('#standart-pic-container');
+const sublistPicBlock = document.querySelector('#file-input2');
+const sublistPicContainer = document.querySelector('#sublist-pic-container');
+
+
+downloadInput.addEventListener('change', () => {
+  setBackgroundImage('input-file', backgroundContainer )
+})
+
+standartPicBlock.addEventListener('change', () => {
+  setBackgroundImage('file-input3', standartPicContainer)
+})
+
+sublistPicBlock.addEventListener('change', () => {
+  setBackgroundImage('file-input2', sublistPicContainer)
+})
+
+
+
+// функция для обработки инпута и установки этого файла на бэкграунд
+function setBackgroundImage(id, container){
+  let input = document.getElementById(id);
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      container.style.backgroundImage = 'url(' + e.target.result + ')';
+
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
