@@ -1,0 +1,1 @@
+"use strict";var btnMenu=document.querySelector(".hamburger-menu"),fixedMenu=document.querySelector(".fixed-menu"),bodyOverflow=document.querySelector("body");btnMenu.addEventListener("click",function(){btnMenu.classList.toggle("hamburger-menu--active"),fixedMenu.classList.toggle("fixed-menu--active"),bodyOverflow.classList.toggle("fixed-menu-open")});
