@@ -75,7 +75,8 @@ var gulp = require('gulp'), // подключаем Gulp
 	rigger = require('gulp-rigger'), // модуль для импорта содержимого одного файла в другой
 	runSequence = require('run-sequence'),
 	babel = require('gulp-babel'), //преобразование скриптов с поддержкой ES6
-    removeHtmlComments = require('gulp-remove-html-comments'); //удаление комментариев в html-файлах
+    removeHtmlComments = require('gulp-remove-html-comments'), //удаление комментариев в html-файлах
+    svgo = require('gulp-svgo');
 
 
 gulp.task('sass', function (cb) {
@@ -101,10 +102,10 @@ gulp.task('sass:build', function (cb) {
 });
 
 gulp.task('build:delhtmlcomm', function (cb) { //удаляем комментрари в html 
-  return gulp.src('dist/**/*.html')
-    .pipe(removeHtmlComments())
-    .pipe(gulp.dest('dist'));
-	cb();
+    return gulp.src('dist/**/*.html')
+        .pipe(removeHtmlComments())
+        .pipe(gulp.dest('dist'));
+    cb();
 });
 
 gulp.task('watch', function(cb) {
@@ -146,8 +147,8 @@ gulp.task('images', function (cb) {
                 max: 90,
                 min: 80
             }),
-            pngquant(),
-            imagemin.svgo({plugins: [{removeViewBox: false}]})
+            pngquant()
+            
 		])))
         .pipe(gulp.dest(path.dist.img)); // выгрузка готовых файлов
 		cb();
@@ -159,16 +160,22 @@ gulp.task('fonts', function () {
 		.pipe(gulp.dest(path.dist.fonts))
 });
 
+gulp.task('svg', function() {
+    return gulp.src('app/img/*.svg')
+        .pipe(svgo({
+            
+        }))
+        .pipe(gulp.dest(path.dist.img))
+});
+
 gulp.task('clean', function (cb) {
 	del('dist');
 	cb();
 });
 
-
-
 //gulp.task('default', gulp.series('sass','watch'));
 gulp.task('dev', gulp.series('watch'));
 
-gulp.task('build', gulp.series('clean', 'sass:build', 'useref', 'images', 'fonts', 'script', 'build:delhtmlcomm', function (done) {
+gulp.task('build', gulp.series('clean', 'sass:build', 'useref', 'images', 'fonts', 'svg', 'script', 'build:delhtmlcomm', function (done) {
     done();
 }));

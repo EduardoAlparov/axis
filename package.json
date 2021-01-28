@@ -34,12 +34,14 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-string-replace": "^1.1.2",
     "gulp-svg-sprite": "^1.5.0",
+    "gulp-svgo": "^2.2.1",
     "gulp-uglify": "^3.0.1",
     "gulp-useref": "^5.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.1",
     "node-bourbon": "^4.2.8",
-    "run-sequence": "latest"
+    "run-sequence": "latest",
+    "svgo": "^1.3.2"
   },
   "browserslist": [
     "> 1%",
